@@ -16,7 +16,7 @@ import { MenuController } from 'ionic-angular';
 export class HomePage {
 
   noteList: Observable<Note[]>
-
+  currentdboi: string
   constructor(public menuCtrl: MenuController,
     private afAuth: AngularFireAuth, private toast: ToastController,
     public navCtrl: NavController, private noteListService: NoteListService) {
@@ -28,6 +28,12 @@ export class HomePage {
           key: c.payload.key, ...c.payload.val()
         }))
       });
+
+      this.afAuth.authState.subscribe(data => {
+        this.currentdboi = data.email;
+
+        console.log(this.currentdboi);
+      })
   }
 
   ionViewWillLoad(){
