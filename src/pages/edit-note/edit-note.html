@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{note?.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Items</ion-label>
+    <ion-textarea [(ngModel)]="note.items" placeholder="Java Technology - Spring Framework"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Estimated Cost</ion-label>
+    <ion-input [(ngModel)]="note.cost" placeholder="Java Sample Approach"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Location (Optional)</ion-label>
+    <ion-input [(ngModel)]="note.loc" placeholder="Java Sample Approach"></ion-input>
+  </ion-item>
+
+  <button ion-button block clear (click)="updateNote(note)">Save</button>
+  <button ion-button block clear (click)="removeNote(note)">Delete</button>
+</ion-content>
