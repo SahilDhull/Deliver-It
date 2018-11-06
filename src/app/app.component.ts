@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-
+import { MyordersPage } from '../pages/myorders/myorders';
 @Component({
   templateUrl: 'app.html'
 })
@@ -30,6 +30,7 @@ export class MyApp {
       this.pages = [
         {title: 'Home', component: HomePage},
         {title: 'SignOut', component: LoginPage},
+        {title: 'My Orders',component: MyordersPage}
       ];
     });
   }

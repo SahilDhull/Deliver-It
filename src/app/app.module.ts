@@ -11,11 +11,13 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { NoteListService } from '../services/note-list.service';
+import { MyordersPage } from '../pages/myorders/myorders';
 
 
 @NgModule({
   declarations: [
     MyApp,
+    MyordersPage
     // RegisterPage,
     // MapPage,
     // LoginPage,
@@ -32,6 +34,7 @@ import { NoteListService } from '../services/note-list.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    MyordersPage
     // RegisterPage,
     // MapPage,
     // LoginPage,
