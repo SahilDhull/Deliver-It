@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Note } from '../../model/note/note.model';
 import { NoteListService } from '../../services/note-list.service';
 import { MapPage } from '../map/map';
@@ -18,14 +18,14 @@ export class AddNotePage {
     cost: undefined,
     loc: '',
     myloc: '',
-    lat: undefined,
-    lng: undefined,
+    lat: 0,
+    lng: 0,
     pbit: true,
     ibit: true,
     dboi: ''
   };
 
-  constructor(private afAuth: AngularFireAuth,
+  constructor(private afAuth: AngularFireAuth, private toast: ToastController,
     public navCtrl: NavController,
     public navParams: NavParams,
     private noteListService: NoteListService) {
@@ -47,9 +47,28 @@ export class AddNotePage {
   }
 
   addNote(note: Note) {
-    this.noteListService.addNote(note).then(ref => {
-      this.navCtrl.setRoot('HomePage');
-    })
+    if((note.items==null)||(note.cost==null)||(note.myloc==null)||(note.loc==null)){
+      // console.log("ohhhhhh");
+      this.toast.create({
+        message: 'Fill all details',
+        duration: 2000
+      }).present();
+    }
+    else{
+      console.log("wrong"+note.lat);
+      if((note.lat==null) || (note.lng==null)){
+        // console.log("here");
+        this.toast.create({
+          message: 'Mark location in map',
+          duration: 2000
+        }).present();
+      }
+      else{
+        this.noteListService.addNote(note).then(ref => {
+          this.navCtrl.setRoot('HomePage');
+        })
+      }
+    }
   }
 
   loadmap(note: Note){
@@ -63,6 +82,10 @@ export class AddNotePage {
       myloc : note.myloc
     }
     this.navCtrl.setRoot('MapPage',data);
+  }
+
+  goback(){
+    this.navCtrl.setRoot('HomePage');
   }
 
 }

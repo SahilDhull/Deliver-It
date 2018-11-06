@@ -28,7 +28,7 @@
 
   <ion-item>
     <ion-label>Location</ion-label>
-    <ion-input [(ngModel)]="note.loc" placeholder="Optional"></ion-input>
+    <ion-input [(ngModel)]="note.loc" placeholder="Required"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -39,4 +39,6 @@
   <button ion-button block clear (click)="loadmap(note)">Map</button>
 
   <button ion-button full outline (click)="addNote(note)">Add</button>
+
+  <button ion-button full outline (click)="goback()">Cancel</button>
 </ion-content>

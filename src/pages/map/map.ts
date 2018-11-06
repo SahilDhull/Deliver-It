@@ -1,5 +1,5 @@
 import { Component , ViewChild, ElementRef} from '@angular/core';
-import { IonicPage, LoadingController, NavController, NavParams, Navbar } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams, Navbar,ToastController } from 'ionic-angular';
 import 'leaflet';
 import { Geolocation } from '@ionic-native/geolocation';
 import L, { LatLngExpression } from 'leaflet';
@@ -22,8 +22,8 @@ import { NoteListService } from '../../services/note-list.service';
 export class MapPage {
   @ViewChild('map') mapContainer: ElementRef;
   map: any;
-  newlat
-  newlng
+  newlat = 0
+  newlng = 0
   newcost
   newitems
   newloc
@@ -37,7 +37,8 @@ export class MapPage {
   // };
 
   loading;
-  constructor(private loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, private gl: Geolocation) {
+  constructor(private toast: ToastController,
+    private loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, private gl: Geolocation) {
     /**
      * Map takes a bit to load once the page is opened. 
      * So we show a loading spinner to the user until the map is completely loaded.
@@ -204,6 +205,16 @@ export class MapPage {
       lng : this.newlng,
       myloc : this.newmyloc
     }
-    this.navCtrl.setRoot('AddNotePage',data);
+    if(this.newlat == 0 && this.newlng == 0){
+      // console.log("Ho gaya-------");
+      this.toast.create({
+        message: 'Select Location',
+        duration: 2000
+      }).present();
+    }
+    else{
+      this.navCtrl.setRoot('AddNotePage',data);
+    }
+    
   }
 }
