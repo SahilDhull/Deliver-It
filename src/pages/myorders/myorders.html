@@ -3,11 +3,11 @@
 
 <ion-header>
   <ion-navbar>
-      <!-- <button ion-button menuToggle>
+      <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
-      </button> -->
+      </button>
     <ion-title>
-      Deliver It
+      My Orders
     </ion-title>
 
     
@@ -37,12 +37,9 @@
     <div *ngFor="let note of noteList | async">
     <ion-item  *ngIf="(currentuboi == note.uboi) && (note.pbit)"
     detail-push navPush="EditNotePage" [navParams]="{note:note}">
-      Items : {{note.items}}
+    Location : {{note.loc}}
       <br>
       Cost : {{note.cost}}
-      <br>
-      Location : {{note.loc}}
-      
     </ion-item>
   </div>
   <ion-list-header>
@@ -50,12 +47,12 @@
   </ion-list-header>
   <div [style.background-color]="aColor" *ngFor="let note of noteList | async">
     <ion-item  *ngIf="(currentuboi == note.uboi) && (!note.pbit && note.ibit)"
-    detail-push navPush="EditNotePage" [navParams]="{note:note}">
-      Items : {{note.items}}
-      <br>
-      Cost : {{note.cost}}
-      <br>
-      Location : {{note.loc}}
+    detail-push navPush="NdisplayPage" [navParams]="{note:note}">
+    Being Delivered by : <br> {{note.dboi}}
+    <br>
+    Contact : {{note.dpn}}
+    <br>
+    Cost : {{note.cost}}
 
     </ion-item>
   </div>
@@ -64,12 +61,10 @@
   </ion-list-header>
   <div *ngFor="let note of noteList | async">
     <ion-item  *ngIf="(currentuboi == note.uboi)&&(!note.pbit && !note.ibit)"
-    detail-push navPush="EditNotePage" [navParams]="{note:note}">
-      Items : {{note.items}}
+    detail-push navPush="NdisplayPage" [navParams]="{note:note}">
+      Delivered by : {{note.dboi}}
       <br>
-      Cost : {{note.cost}}
-      <br>
-      Location : {{note.loc}}
+      Contact : {{note.dpn}}
       
     </ion-item>
   </div>

@@ -12,12 +12,14 @@ import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { NoteListService } from '../services/note-list.service';
 import { MyordersPage } from '../pages/myorders/myorders';
+import { TakeorderPage } from '../pages/takeorder/takeorder';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    MyordersPage
+    MyordersPage,
+    TakeorderPage
     // RegisterPage,
     // MapPage,
     // LoginPage,
@@ -34,7 +36,8 @@ import { MyordersPage } from '../pages/myorders/myorders';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MyordersPage
+    MyordersPage,
+    TakeorderPage
     // RegisterPage,
     // MapPage,
     // LoginPage,

@@ -1,6 +1,7 @@
 export interface Note {
     key?: string;
     uboi: string;
+    upn: string;
     items: string;
     cost: number;
     myloc: string;
@@ -10,5 +11,5 @@ export interface Note {
     pbit: boolean;
     ibit: boolean;
     dboi: string;
-    // coords:;
+    dpn: string;
 }

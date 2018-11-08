@@ -28,6 +28,7 @@ export class MapPage {
   newitems
   newloc
   newmyloc
+  newupn
   // note: Note = {
   //   items: '',
   //   cost: undefined,
@@ -54,6 +55,7 @@ export class MapPage {
     this.newitems = this.navParams.get('items');
     this.newloc = this.navParams.get('loc');
     this.newmyloc = this.navParams.get('myloc');
+    this.newupn = this.navParams.get('upn');
     console.log('ionViewDidLoad MapPage');
     var planes = [
       ["User1",26.50507,80.22928],
@@ -203,7 +205,8 @@ export class MapPage {
       loc : this.newloc,
       lat : this.newlat,
       lng : this.newlng,
-      myloc : this.newmyloc
+      myloc : this.newmyloc,
+      upn : this.newupn
     }
     if(this.newlat == 0 && this.newlng == 0){
       // console.log("Ho gaya-------");

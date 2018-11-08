@@ -6,6 +6,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { MyordersPage } from '../pages/myorders/myorders';
+import { TakeorderPage } from '../pages/takeorder/takeorder';
 @Component({
   templateUrl: 'app.html'
 })
@@ -29,8 +30,9 @@ export class MyApp {
       })
       this.pages = [
         {title: 'Home', component: HomePage},
+        {title: 'My Orders',component: MyordersPage},
+        {title: 'Take Order', component: TakeorderPage},
         {title: 'SignOut', component: LoginPage},
-        {title: 'My Orders',component: MyordersPage}
       ];
     });
   }

@@ -22,7 +22,9 @@ export class AddNotePage {
     lng: 0,
     pbit: true,
     ibit: true,
-    dboi: ''
+    dboi: '',
+    upn: '',
+    dpn: ''
   };
 
   constructor(private afAuth: AngularFireAuth, private toast: ToastController,
@@ -43,11 +45,12 @@ export class AddNotePage {
       console.log(this.note.uboi);
     })
     this.note.myloc = this.navParams.get('myloc');
+    this.note.upn = this.navParams.get('upn');
     // console.log(this.note.lat);
   }
 
   addNote(note: Note) {
-    if((note.items==null)||(note.cost==null)||(note.myloc==null)||(note.loc==null)){
+    if((note.items==null)||(note.upn==null)||(note.cost==null)||(note.myloc==null)||(note.loc==null)){
       // console.log("ohhhhhh");
       this.toast.create({
         message: 'Fill all details',
@@ -64,9 +67,19 @@ export class AddNotePage {
         }).present();
       }
       else{
-        this.noteListService.addNote(note).then(ref => {
-          this.navCtrl.setRoot('HomePage');
-        })
+        var number = /^[0-9]{10}$/.test(note.upn)
+        if(!number){
+          this.toast.create({
+            message: 'Invalid Contact',
+            duration: 2000
+          }).present();
+        }
+        else{
+          this.noteListService.addNote(note).then(ref => {
+            this.navCtrl.setRoot('HomePage');
+          })
+        }
+        
       }
     }
   }
@@ -79,7 +92,8 @@ export class AddNotePage {
       loc : note.loc,
       lat : note.lat,
       lng : note.lng,
-      myloc : note.myloc
+      myloc : note.myloc,
+      upn : note.upn
     }
     this.navCtrl.setRoot('MapPage',data);
   }

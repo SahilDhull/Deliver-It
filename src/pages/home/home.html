@@ -25,22 +25,17 @@
       </button>
     </ion-buttons>
 
-    <ion-buttons>
-      <button full navPush="AddNotePage" ion-button>
-        <ion-icon>Open For Delivery</ion-icon>
-      </button>
-    </ion-buttons>
     <ion-list-header>
       Your Deliveries
     </ion-list-header>
     <div *ngFor="let note of noteList | async">
     <ion-item  *ngIf="(currentdboi == note.dboi)"
-    detail-push navPush="EditNotePage" [navParams]="{note:note}">
-      Items : {{note.items}}
+    detail-push navPush="DisplayPage" [navParams]="{note:note}">
+      {{note.uboi}}
       <br>
-      Cost : {{note.cost}}
+      Delivery : {{note.myloc}}
       <br>
-      Location : {{note.loc}}
+      Pickup : {{note.loc}}
       
     </ion-item>
   </div>

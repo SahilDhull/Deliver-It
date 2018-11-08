@@ -9,20 +9,30 @@
 
 <ion-content padding>
 
-  <ion-item>
-    <ion-label>Items</ion-label>
-    <ion-textarea [(ngModel)]="note.items" placeholder="Java Technology - Spring Framework"></ion-textarea>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Estimated Cost</ion-label>
-    <ion-input [(ngModel)]="note.cost" placeholder="Java Sample Approach"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Location (Optional)</ion-label>
-    <ion-input [(ngModel)]="note.loc" placeholder="Java Sample Approach"></ion-input>
-  </ion-item>
+    <ion-item>
+        <ion-label>Items</ion-label>
+        <ion-textarea [(ngModel)]="note.items" placeholder="Mention Items and Quantity"></ion-textarea>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Estimated Cost</ion-label>
+        <ion-input [(ngModel)]="note.cost" placeholder="Approximate"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Location</ion-label>
+        <ion-input [(ngModel)]="note.loc" placeholder="Required" [readonly]="isReadonly()"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Mobile</ion-label>
+        <ion-input [(ngModel)]="note.upn" placeholder="Required"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+          <ion-label>Deliver At</ion-label>
+          <ion-input [(ngModel)]="note.myloc" placeholder="Required"[readonly]="isReadonly()"></ion-input>
+        </ion-item>
 
   <button ion-button block clear (click)="updateNote(note)">Save</button>
   <button ion-button block clear (click)="removeNote(note)">Delete</button>
