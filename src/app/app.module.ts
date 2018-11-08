@@ -13,13 +13,15 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
 import { NoteListService } from '../services/note-list.service';
 import { MyordersPage } from '../pages/myorders/myorders';
 import { TakeorderPage } from '../pages/takeorder/takeorder';
+import { TorderPage } from '../pages/torder/torder';
 
 
 @NgModule({
   declarations: [
     MyApp,
     MyordersPage,
-    TakeorderPage
+    TakeorderPage,
+    TorderPage
     // RegisterPage,
     // MapPage,
     // LoginPage,
@@ -37,7 +39,8 @@ import { TakeorderPage } from '../pages/takeorder/takeorder';
   entryComponents: [
     MyApp,
     MyordersPage,
-    TakeorderPage
+    TakeorderPage,
+    TorderPage
     // RegisterPage,
     // MapPage,
     // LoginPage,

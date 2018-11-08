@@ -5,9 +5,7 @@ import { NoteListService } from '../../services/note-list.service';
 import { Observable, Subscription } from 'rxjs';
 import { Note } from '../../model/note/note.model';
 import firebase, { database } from 'firebase';
-import 'leaflet';
-import { Geolocation } from '@ionic-native/geolocation';
-import L, { LatLngExpression } from 'leaflet';
+
 
 /**
  * Generated class for the TakeorderPage page.
@@ -18,10 +16,10 @@ import L, { LatLngExpression } from 'leaflet';
 
 @IonicPage()
 @Component({
-  selector: 'page-takeorder',
-  templateUrl: 'takeorder.html',
+  selector: 'page-torder',
+  templateUrl: 'torder.html',
 })
-export class TakeorderPage {
+export class TorderPage {
 
   noteList: Observable<Note[]>
   myVar : Note[] = [];
@@ -31,7 +29,7 @@ export class TakeorderPage {
   mylng: number;
   public items: Array<any> = [];
 public itemRef: firebase.database.Reference = firebase.database().ref('/items');
-  constructor(public menuCtrl: MenuController,private geolocation: Geolocation,
+  constructor(public menuCtrl: MenuController,
     private afAuth: AngularFireAuth, private toast: ToastController,
     public navCtrl: NavController, private noteListService: NoteListService,
     public navParams: NavParams,) {
@@ -63,41 +61,8 @@ public itemRef: firebase.database.Reference = firebase.database().ref('/items');
   ionViewDidLoad() {
     console.log('ionViewDidLoad TakeorderPage');
 
-     if (navigator.geolocation) {
-      var options = {
-        enableHighAccuracy: true
-      };
-
-      navigator.geolocation.getCurrentPosition(position=> {
-        console.log('using navigator');
-        console.log(position.coords.latitude);
-        console.log(position.coords.longitude);
-
-        this.mylat = position.coords.latitude;
-        this.mylng = position.coords.longitude;
-
-        var j = 0;
-        this.noteList.subscribe(notes => {
-          
-          for(var i=0;i<notes.length;i++){
-            var mylocation = L.latLng(this.mylat,this.mylng);
-            var location = L.latLng(notes[i].lat,notes[i].lng);
-            var distance = L.latLng(mylocation).distanceTo(location);
-            if(distance<100){
-              this.myVar[j] = notes[i];
-              j++;
-            }
-            
-          }
-        });
-
-
-
-      }, error => {
-        console.log(error);
-      }, options);
-    }
-
+     
+       
   }
 
 }
