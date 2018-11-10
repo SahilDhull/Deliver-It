@@ -50,6 +50,7 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
+      "cordova-plugin-geolocation": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
