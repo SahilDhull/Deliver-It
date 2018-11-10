@@ -56,8 +56,29 @@ export class LoginPage {
     }
   }
 
-  register(){
-    this.navCtrl.push('RegisterPage');
+  // register(){
+  //   this.navCtrl.push('RegisterPage');
+  // }
+
+  async register(user: User){
+    try {
+      const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email,
+      user.password)
+      .then( res=>{
+        let user = firebase.auth().currentUser;
+        user.sendEmailVerification();
+         this.navCtrl.setRoot('LoginPage');
+      })
+      console.log(result);
+      // this.navCtrl.setRoot('LoginPage');
+    }
+    catch(e){
+      console.error(e);
+      this.toast.create({
+        message: 'Invalid Email/Password',
+        duration: 3000
+      }).present();
+    }
   }
 
 }
