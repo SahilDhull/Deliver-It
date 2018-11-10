@@ -47,7 +47,7 @@
   </ion-list-header>
   <div [style.background-color]="aColor" *ngFor="let note of noteList | async">
     <ion-item  *ngIf="(currentuboi == note.uboi) && (!note.pbit && note.ibit)"
-    detail-push navPush="NdisplayPage" [navParams]="{note:note}">
+    detail-push navPush="Ndisplay2Page" [navParams]="{note:note}">
     Being Delivered by : <br> {{note.dboi}}
     <br>
     Contact : {{note.dpn}}
