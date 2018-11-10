@@ -54,11 +54,11 @@
   <div [ngSwitch]="opt">
     <form (submit)="login(user)" *ngSwitchCase="'signin'">
 
-        <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="user.email" name="email" placeholder="Email address"></ion-input>
 
 
 
-        <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="user.password" name="password" placeholder="Password"></ion-input>
 
 
 
@@ -75,11 +75,11 @@
 
     <form (submit)="register(user)" *ngSwitchCase="'signup'">
       
-        <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="user.email" name="email" placeholder="Email address"></ion-input>
 
 
 
-        <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="user.password" name="password" placeholder="Password"></ion-input>
 
     
 
