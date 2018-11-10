@@ -84,4 +84,12 @@ export class LoginPage {
     }
   }
 
+  async forgot(user: User)
+  {
+    var auth = firebase.auth();
+    let email = user.email;
+    auth.sendPasswordResetEmail(email);
+    this.navCtrl.setRoot('LoginPage');
+  }
+
 }

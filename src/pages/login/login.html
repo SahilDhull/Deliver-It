@@ -48,6 +48,9 @@
       <ion-segment-button value="signup">
         Sign Up
       </ion-segment-button>
+      <ion-segment-button value="forgotp">
+          Forgot 
+        </ion-segment-button>
     </ion-segment>
   </div>
 
@@ -92,5 +95,23 @@
 
     </form>
 
+    <form (submit)="forgot(user)" *ngSwitchCase="'forgotp'">
+
+        <ion-input type="email" [(ngModel)]="user.email" name="email" placeholder="Email address"></ion-input>
+
+
+
+                 
+
+        <div padding text-center>
+          <button ion-button round color="light" icon-right>
+            Send Email <ion-icon name="send"></ion-icon>
+          </button>
+        </div>
+
+
+    </form>
+
+   
   </div>
 </ion-content>
