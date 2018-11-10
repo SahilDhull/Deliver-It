@@ -27,7 +27,7 @@
   </ion-item>
 
   <ion-item>
-    <ion-label>Location</ion-label>
+    <ion-label>Pick-Up Location</ion-label>
     <ion-input [(ngModel)]="note.loc" placeholder="Required" (input)='onInputTime($event.target.value,note.loc)'></ion-input>
   </ion-item>
 
@@ -41,9 +41,9 @@
       <ion-input [(ngModel)]="note.myloc" placeholder="Required" (input)='onInputTime($event.target.value,note.myloc)'></ion-input>
     </ion-item>
 
-  <button ion-button block clear (click)="loadmap(note)">Map</button>
+  <button ion-button round full (click)="loadmap(note)"icon-right>Map  <ion-icon name="map"></ion-icon></button>
 
-  <button ion-button full outline (click)="addNote(note)">Add</button>
+  <button ion-button full round (click)="addNote(note)"icon-right>Add <ion-icon name="md-add"></ion-icon></button>
 
-  <button ion-button full outline (click)="goback()">Cancel</button>
+  <button ion-button full round (click)="goback()" icon-right>Cancel  <ion-icon name="close"></ion-icon></button>
 </ion-content>
