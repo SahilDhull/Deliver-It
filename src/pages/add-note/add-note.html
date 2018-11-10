@@ -18,27 +18,27 @@
 
   <ion-item>
     <ion-label>Items</ion-label>
-    <ion-textarea [(ngModel)]="note.items" placeholder="Mention Items and Quantity"></ion-textarea>
+    <ion-textarea [(ngModel)]="note.items" placeholder="Mention Items and Quantity" (input)='onInputTime($event.target.value,note.items)'></ion-textarea>
   </ion-item>
 
   <ion-item>
     <ion-label>Estimated Cost</ion-label>
-    <ion-input [(ngModel)]="note.cost" placeholder="Approximate"></ion-input>
+    <ion-input [(ngModel)]="note.cost" placeholder="Approximate" (input)='onInputTime($event.target.value,note.cost)'></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>Location</ion-label>
-    <ion-input [(ngModel)]="note.loc" placeholder="Required"></ion-input>
+    <ion-input [(ngModel)]="note.loc" placeholder="Required" (input)='onInputTime($event.target.value,note.loc)'></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>Mobile</ion-label>
-    <ion-input [(ngModel)]="note.upn" placeholder="Required"></ion-input>
+    <ion-input [(ngModel)]="note.upn" placeholder="Required" (input)='onInputTime($event.target.value,note.upn)'></ion-input>
   </ion-item>
 
   <ion-item>
       <ion-label>Deliver At</ion-label>
-      <ion-input [(ngModel)]="note.myloc" placeholder="Required"></ion-input>
+      <ion-input [(ngModel)]="note.myloc" placeholder="Required" (input)='onInputTime($event.target.value,note.myloc)'></ion-input>
     </ion-item>
 
   <button ion-button block clear (click)="loadmap(note)">Map</button>

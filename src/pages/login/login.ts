@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { User } from '../../model/user';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
+import { MenuController } from 'ionic-angular/components/app/menu-controller';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,8 +20,10 @@ import * as firebase from 'firebase';
 export class LoginPage {
   user = {} as User;
 
-  constructor(private afAuth: AngularFireAuth, private toast: ToastController,
-    public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public menuCtrl: MenuController,
+    private afAuth: AngularFireAuth, private toast: ToastController,
+    public navCtrl: NavController, public navParams: NavParams,) {
+      this.menuCtrl.enable(false,'mymenu');
   }
 
   async login(user: User){

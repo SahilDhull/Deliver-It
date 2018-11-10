@@ -20,6 +20,7 @@ export class HomePage {
   constructor(public menuCtrl: MenuController,
     private afAuth: AngularFireAuth, private toast: ToastController,
     public navCtrl: NavController, private noteListService: NoteListService) {
+      this.menuCtrl.enable(true,'mymenu');
     this.noteList = this.noteListService.getNoteList()
       .snapshotChanges()
       .map(

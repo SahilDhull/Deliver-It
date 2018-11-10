@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Note } from '../../model/note/note.model';
 import { NoteListService } from '../../services/note-list.service';
 
@@ -32,10 +32,11 @@ export class NdisplayPage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private noteListService: NoteListService) {
+    private noteListService: NoteListService, private viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
+    // this.viewCtrl.showBackButton(false);
     this.note = this.navParams.get('note');
     console.log('ionViewDidLoad NdisplayPage');
   }

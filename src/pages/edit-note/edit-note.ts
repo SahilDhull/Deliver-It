@@ -35,6 +35,12 @@ export class EditNotePage {
     this.note = this.navParams.get('note');
   }
 
+  onInputTime(data,field) : void{
+    console.log("Event data: " + data);
+    field = data;
+    // console.log(typeof this.note.cost);
+  }
+
   updateNote(note: Note) {
     if((note.items==null)||(note.upn==null)||(note.cost==null)){
       this.toast.create({
@@ -43,28 +49,37 @@ export class EditNotePage {
       }).present();
     }
     else{
-      var number = /^[0-9]{10}$/.test(note.upn);
-      if(!number){
+      if((note.items=='')||(note.myloc=='')||(note.loc=='')){
+        console.log("okay");
         this.toast.create({
-          message: 'Invalid Contact',
+          message: 'Fill all details',
           duration: 2000
         }).present();
       }
       else{
-        if(this.note.pbit==false){
+        var number = /^[0-9]{10}$/.test(note.upn);
+        if(!number){
           this.toast.create({
-            message: 'Cannot Update, Order already accepted',
+            message: 'Invalid Contact',
             duration: 2000
           }).present();
-          this.navCtrl.setRoot('HomePage');
         }
         else{
-          this.noteListService.updateNote(note).then(() => {
+          if(this.note.pbit==false){
+            this.toast.create({
+              message: 'Cannot Update, Order already accepted',
+              duration: 2000
+            }).present();
             this.navCtrl.setRoot('HomePage');
-          })
+          }
+          else{
+            this.noteListService.updateNote(note).then(() => {
+              this.navCtrl.setRoot('HomePage');
+            })
+          }
         }
       }
-    }
+  }
     
     
   }

@@ -33,6 +33,12 @@ export class AddNotePage {
     private noteListService: NoteListService) {
   }
 
+  onInputTime(data,field) : void{
+    console.log("Event data: " + data);
+    field = data;
+    // console.log(typeof this.note.cost);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddNotePage');
     this.note.items = this.navParams.get('items');
@@ -50,7 +56,7 @@ export class AddNotePage {
   }
 
   addNote(note: Note) {
-    if((note.items==null)||(note.upn==null)||(note.cost==null)||(note.myloc==null)||(note.loc==null)){
+    if((note.items==null)||(note.upn==null)||(note.cost==undefined)||(note.myloc==null)||(note.loc==null)){
       // console.log("ohhhhhh");
       this.toast.create({
         message: 'Fill all details',
@@ -58,7 +64,16 @@ export class AddNotePage {
       }).present();
     }
     else{
-      console.log("wrong"+note.lat);
+      if((note.items=='')||(note.myloc=='')||(note.loc=='')){
+        console.log("okay");
+        this.toast.create({
+          message: 'Fill all details',
+          duration: 2000
+        }).present();
+      }
+      else{
+        // console.log("wrong => "+note.items);
+      console.log(this.note.cost);
       if((note.lat==null) || (note.lng==null)){
         // console.log("here");
         this.toast.create({
@@ -70,7 +85,7 @@ export class AddNotePage {
         var number = /^[0-9]{10}$/.test(note.upn)
         if(!number){
           this.toast.create({
-            message: 'Invalid Contact',
+            message: 'Invalid',
             duration: 2000
           }).present();
         }
@@ -81,6 +96,8 @@ export class AddNotePage {
         }
         
       }
+      }
+      
     }
   }
 
