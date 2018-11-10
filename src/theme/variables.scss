@@ -86,3 +86,8 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+@font-face {
+  font-family: MyFont;
+  src: url("../assets/Aller_Bd.ttf");
+  }
