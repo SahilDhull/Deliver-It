@@ -34,6 +34,6 @@
           <ion-input [(ngModel)]="note.myloc" placeholder="Required"[readonly]="isReadonly()"></ion-input>
         </ion-item>
 
-  <button ion-button block clear (click)="updateNote(note)">Save</button>
-  <button ion-button block clear (click)="removeNote(note)">Delete</button>
+  <button ion-button round full (click)="updateNote(note)" icon-right>Save  <ion-icon name="cloud-done"></ion-icon></button>
+  <button ion-button round full (click)="removeNote(note)"icon-right>Delete  <ion-icon name="trash"></ion-icon></button>
 </ion-content>
