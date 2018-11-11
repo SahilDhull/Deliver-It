@@ -14,6 +14,7 @@ import { NoteListService } from '../services/note-list.service';
 import { MyordersPage } from '../pages/myorders/myorders';
 import { TakeorderPage } from '../pages/takeorder/takeorder';
 import { TorderPage } from '../pages/torder/torder';
+import { DetailsPage } from '../pages/details/details';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TorderPage } from '../pages/torder/torder';
     MyApp,
     MyordersPage,
     TakeorderPage,
-    TorderPage
+    TorderPage,
+    DetailsPage
     // RegisterPage,
     // MapPage,
     // LoginPage,
@@ -40,7 +42,8 @@ import { TorderPage } from '../pages/torder/torder';
     MyApp,
     MyordersPage,
     TakeorderPage,
-    TorderPage
+    TorderPage,
+    DetailsPage
     // RegisterPage,
     // MapPage,
     // LoginPage,
