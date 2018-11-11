@@ -31,7 +31,7 @@
       Your Deliveries
     </ion-list-header>
     <div *ngFor="let note of noteList | async">
-    <ion-item  *ngIf="(currentdboi == note.dboi)"
+    <ion-item  *ngIf="(currentdboi == note.dboi) && (note.ibit)"
     detail-push navPush="DisplayPage" [navParams]="{note:note}">
       {{note.uboi}}
       <br>
